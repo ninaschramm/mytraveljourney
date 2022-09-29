@@ -9,3 +9,12 @@ export async function insert(email: string, username: string, password: string) 
         }
     });
 }
+
+export async function checkUser(username: string) {
+    const user = await client.users.findUnique({
+        where: {
+            username
+        }
+    })
+    return user
+}
